@@ -1,0 +1,20 @@
+# Hardware demo 3 (integro-differential equation, kernel kept as an integral):
+# x' = -1.5x + int_0^1 1.2 cos(pi s / 2) x(t-s) ds, exact characteristic-mode history e^{lambda t}.
+[problem]
+name    = "integro-differential equation (demo)"
+dim     = 1
+T       = 2.0
+A       = [[-1.5]]
+history = ["exp(-0.5563891948650157*t)"]
+
+[[kernel]]
+window = 1.0
+k      = "1.2*cos(1.5707963267948966*s)"
+K      = [[1.0]]
+
+[discretization]
+degree       = 2
+element_size = 1.0
+
+[target]
+eps = 1e-3

@@ -1,0 +1,23 @@
+# Hardware demo (delay equation with two delays): x' = -2x - 1.2 x(t-1) - 0.7 x(t-1.7),
+# history Re e^{lambda t}, lambda the dominant characteristic root.
+[problem]
+name    = "delay equation, two delays (demo)"
+dim     = 1
+T       = 2.0
+A       = [[-2.0]]
+history = ["exp(-0.35404713880218713*t)*cos(1.7913179983613625*t)"]
+
+[[delay]]
+tau = 1.0
+B   = [[-1.2]]
+
+[[delay]]
+tau = 1.7
+B   = [[-0.7]]
+
+[discretization]
+degree       = 1
+element_size = 1.0
+
+[target]
+eps = 1e-2

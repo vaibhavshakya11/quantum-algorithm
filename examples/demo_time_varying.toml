@@ -1,0 +1,21 @@
+# Hardware demo (delay equation with a time-varying delay and coefficient):
+# x' = (-2 + 0.3 cos t) x + 0.6 x(t - d(t)),  d(t) = 1 + 0.2 sin t.
+[problem]
+name    = "delay equation, time-varying delay (demo)"
+dim     = 1
+T       = 2.0
+A       = [["-2 + 0.3*cos(t)"]]
+history = ["exp(-0.3*t)"]
+
+[[var_delay]]
+d  = "1 + 0.2*sin(t)"
+dd = "0.2*cos(t)"
+B  = [[0.6]]
+
+[discretization]
+degree                 = 2
+element_size           = 1.0
+stretched_element_size = 1.0
+
+[target]
+eps = 1e-2

@@ -1,0 +1,14 @@
+# Memory-stabilised system: stable, but no delay-independent LK functional exists (reported, not compiled)
+[problem]
+name    = "memory-stabilised (no LK functional)"
+dim     = 1
+T       = 10.0
+A       = [[0.2]]
+history = ["1.0"]
+
+[[delay]]
+tau = 0.5
+B   = [[-1.0]]
+
+[target]
+eps = 1e-4

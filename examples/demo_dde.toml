@@ -1,0 +1,19 @@
+# Hardware demo 1 (delay equation): x' = -2x + 1.2 x(t-1), exact characteristic-mode history e^{lambda t}.
+# Fixed small discretization (degree 2, one element: 4 unknowns = 2 qubits) for the LCHS circuit.
+[problem]
+name    = "delay equation (demo)"
+dim     = 1
+T       = 2.0
+A       = [[-2.0]]
+history = ["exp(-0.33031401751431055*t)"]
+
+[[delay]]
+tau = 1.0
+B   = [[1.2]]
+
+[discretization]
+degree       = 2
+element_size = 1.0
+
+[target]
+eps = 1e-3

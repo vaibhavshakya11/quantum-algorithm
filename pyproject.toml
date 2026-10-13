@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qfde"
+version = "0.5.1"
+description = "A quantum algorithm for linear delay differential equations and integro-differential equations with convolution memory, built on Lyapunov-Krasovskii-preserving spectral discretization"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.26", "scipy>=1.11", "cvxpy>=1.4", "mpmath>=1.3"]
+
+[project.optional-dependencies]
+quantum = ["qiskit>=1.2", "qiskit-aer>=0.15", "qiskit-ibm-runtime>=0.30", "qualtran>=0.6", "qdk[qre]"]
+dev = ["pytest>=8", "matplotlib>=3.8", "tomli; python_version<'3.11'"]
+
+[project.scripts]
+qfde = "qfde.cli:main"
+
+[tool.setuptools]
+packages = ["qfde"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["quantum: needs the optional quantum toolchain", "slow: takes more than a minute"]

@@ -1,0 +1,23 @@
+# Hardware demo 2 (neutral delay equation): d/dt[x - 0.3 x(t-1)] = -2x + 1.2 x(t-1),
+# exact characteristic-mode history e^{lambda t}, lambda (1 - 0.3 e^{-lambda}) = -2 + 1.2 e^{-lambda}.
+[problem]
+name    = "neutral delay equation (demo)"
+dim     = 1
+T       = 2.0
+A       = [[-2.0]]
+history = ["exp(-0.39483263668935853*t)"]
+
+[[delay]]
+tau = 1.0
+B   = [[1.2]]
+
+[[neutral]]
+sigma = 1.0
+C     = [[0.3]]
+
+[discretization]
+degree       = 2
+element_size = 1.0
+
+[target]
+eps = 1e-3

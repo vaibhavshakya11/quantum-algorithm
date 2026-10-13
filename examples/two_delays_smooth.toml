@@ -1,0 +1,18 @@
+# x' = -2x - 1.2 x(t-1) - 0.7 x(t-1.7) with an exact characteristic-mode history (compatible)
+[problem]
+name    = "two delays, smooth history"
+dim     = 1
+T       = 10.0
+A       = [[-2.0]]
+history = ["exp(-0.354047138802*t)*cos(1.791317998361*t)"]
+
+[[delay]]
+tau = 1.0
+B   = [[-1.2]]
+
+[[delay]]
+tau = 1.7
+B   = [[-0.7]]
+
+[target]
+eps = 1e-6

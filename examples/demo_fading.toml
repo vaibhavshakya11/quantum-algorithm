@@ -1,0 +1,21 @@
+# Hardware demo (integro-differential equation with exponentially fading memory, truncated to a window):
+# x' = -x + 0.8 int_0^2 2 e^{-2s} x(t-s) ds   (the full memory int_0^inf has relative tail e^{-4} = 1.8e-2),
+# history e^{lambda t}, lambda = (-3 + sqrt(7.4))/2 the dominant root of the full equation.
+[problem]
+name    = "integro-differential equation, fading memory (demo)"
+dim     = 1
+T       = 2.0
+A       = [[-1.0]]
+history = ["exp(-0.13985294912645574*t)"]
+
+[[kernel]]
+window = 2.0
+k      = "1.6*exp(-2*s)"
+K      = [[1.0]]
+
+[discretization]
+degree       = 2
+element_size = 2.0
+
+[target]
+eps = 1e-2

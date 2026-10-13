@@ -1,0 +1,19 @@
+# Hardware demo (physiology): linearized baroreflex, P' = -P + 0.5 H, H' = -0.8 H - 0.6 P(t-0.8);
+# history = real part of the dominant characteristic mode.
+[problem]
+name    = "baroreflex (demo)"
+dim     = 2
+T       = 2.0
+A       = [[-1.0, 0.5], [0.0, -0.8]]
+history = ["exp(-0.7003854003310048*t)*(0.26430301*cos(0.6906753397783907*t) + 0.60927463*sin(0.6906753397783907*t))", "exp(-0.7003854003310048*t)*cos(0.6906753397783907*t)"]
+
+[[delay]]
+tau = 0.8
+B   = [[0.0, 0.0], [-0.6, 0.0]]
+
+[discretization]
+degree       = 1
+element_size = 0.8
+
+[target]
+eps = 1e-2
