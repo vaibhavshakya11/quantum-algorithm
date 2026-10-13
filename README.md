@@ -37,8 +37,3 @@ python3 -m pytest -q                                 # 33 tests, about 1 min
 | `benchmarks/p_sweep.py` | Stability (with/without the weight) and accuracy against the degree p |
 | `benchmarks/experiments.py`, `benchmarks/general_tests.py` | The dissipativity table (random and structured systems), accuracy on manufactured solutions, the delay-stabilized example of the Scope section |
 | `results/predictions.md` | Predictions for the circuit experiments, recorded before they were run, and the outcomes |
-| `paper/main.tex` | Preprint (16 pages) |
-| `paper/iris_full_paper.tex` | IRIS research paper: readable main text (14 pages) with the proofs in appendices; uses `paper/figs/` and `paper/tables/` |
-| `paper/iris_synopsis.tex` | IRIS research synopsis |
-| `paper/ai_disclosure.tex` | Acknowledgement of AI use (separate one-page document) |
-| `docs/` | Architecture and design decisions |
